@@ -10,7 +10,8 @@
            {:title "abc"}])
 
 (defroutes app-routes
-  (GET "/" [] (views/home-page))
+  (GET "/" [] (views/home-page {:keys [5]}))
+  (POST "/" {params :params} (views/home-page params))
   (GET "/q" [] (content-type (response data) "application/json"))
   (route/not-found "Not Found"))
 
